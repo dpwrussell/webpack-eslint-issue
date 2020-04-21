@@ -18,11 +18,6 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.js$/,
-                include: path.join(__dirname, "src", "main", "js"),
-                loader: "eslint-loader"
-            },
-            {
                 test: /\.?js$/,
                 exclude: /(node_modules|bower_components)/,
                 use: {
@@ -31,6 +26,11 @@ module.exports = {
                         presets: ['@babel/preset-env']
                     }
                 }
+            },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: "eslint-loader"
             },
             {
                 test: /\.css$/,
